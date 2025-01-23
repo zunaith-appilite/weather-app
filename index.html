@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <script src="index.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/1e5afcd23b.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="bg">
+      <div class="weather-card">
+        <h1 class="header">Country's Weather</h1>
+        <p class="quote">"know your native's weather condition"</p>
+        <form id="form" class="form-container">
+          <div class="search-container">
+            <input
+              id="location-input"
+              placeholder="Enter your location"
+              type="text"
+            />
+            <button class="search-btn" type="submit">
+              <i class="fa-brands fa-searchengin search-icon"></i>
+            </button>
+          </div>
+        </form>
+        <h4 id="current-location-text" class="sub-header">Current Location's Weather</h4>
+        <div class="location-details-container">
+          <p>
+            Location:
+            <span id="location-span" style="color: #c98cd2"></span>
+          </p>
+          <p>
+            Region:
+            <span id="region-span" style="color: #c98cd2"></span>
+          </p>
+          <p>
+            Country:
+            <span id="country-span" style="color: #c98cd2"></span>
+          </p>
+        </div>
+        <div style="display: flex; justify-content: center">
+          <div class="climate-container">
+            <div class="temperature">
+              <img
+                id="climate-img"
+                src="//cdn.weatherapi.com/weather/64x64/day/143.png"
+              />
+
+              <p id="temp"></p>
+              <sup style="color: darkgray; font-size: 24px">oC</sup>
+            </div>
+            <div class="conditon">
+              <p style="font-weight: bold; font-size: 18px">Weather</p>
+              <p>Last Updated At:</p>
+              <p id="date-time"></p>
+              <p id="condition"></p>
+            </div>
+          </div>
+        </div>
+        <p id="weatherData"></p>
+      </div>
+    </div>
+  </body>
+</html>
