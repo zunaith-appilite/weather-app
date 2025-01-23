@@ -16,18 +16,41 @@ This document provides a detailed overview of the Weather Forecasting Web App, i
 We use AJAX to fetch data from the WeatherAPI. Below is the code snippet to get weather data using an API key.
 
 ```javascript
-const apiKey = 'YOUR_API_KEY';
-const city = 'Mumbai';
-const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
+ const currentEndpoint = `http://api.weatherapi.com/v1/current.json?key=<api-key>&q=${
+    locationInput.value !== "" ? locationInput.value : "Chennai"
+  }&aqi=no`;
 
-const xhr = new XMLHttpRequest();
-xhr.open('GET', url, true);
-xhr.onload = function() {
-    if (this.status === 200) {
-        const response = JSON.parse(this.responseText);
-        console.log(response);
-        // Process and display the weather data
+  // Create an XMLHttpRequest object
+  const xhr = new XMLHttpRequest();
+
+  // Configure it: GET-request for the URL
+  xhr.open("GET", currentEndpoint, true);
+
+  // Define what happens on successful response
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      const data = JSON.parse(xhr.responseText);
+      console.log(data); // For debugging
+      updateData(data);
+    } else {
+      document.getElementById(
+        "weatherData"
+      ).innerHTML = `<p>Error: HTTP status ${xhr.status}</p>`;
     }
-};
-xhr.send();
+  };
+
+  // Define what happens in case of an error
+  xhr.onerror = function () {
+    document.getElementById(
+      "weatherData"
+    ).innerHTML = `<p>Error: Unable to fetch data</p>`;
+  };
+
+  // Clear the previous weather data
+  document.getElementById("weatherData").innerHTML = ``;
+
+  // Send the request
+  xhr.send();
+}
+
 
