@@ -56,6 +56,8 @@ We use AJAX to fetch data from the WeatherAPI. Below is the code snippet to get 
 ### Screenshots
 Here are some screenshots of the web app in action:
 
+![UI of weather app](https://i.ibb.co/r52TWYx/Screenshot-315.png" alt="Screenshot-315)
+
 
 
 
